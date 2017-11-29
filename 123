@@ -1,0 +1,204 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+
+
+namespace ConsoleApplication1
+{
+
+
+       interface IZarzadzanie
+    {
+        void WypiszWszystko();
+        void WyszukajPoTytule(string tytul);
+        void WyszukajPoid(int id);
+    }
+
+
+    public class Czasopismo:Pozycja
+    {
+       
+    }
+    class Katalog : IZarzadzanie
+    {
+        private string dzialTematyczny;
+        private List<Pozycja> poz = new List<Pozycja>();
+
+
+
+        public Katalog(string newKatalog)
+        {
+
+        }
+        // public void DodajPozycje(string ,int,string,int,int,string,string,string)
+        //  {
+
+
+        //}
+
+        public class Pozycja
+        {
+            protected string tytul;
+            protected int id;
+            protected string wydawnictwo;
+            protected int rokWydania;
+            public Pozycja()
+            {
+
+            }
+            public Pozycja(string tytul, int id, string wydawnictwo, int rokWydania)
+            {
+                this.tytul = tytul;
+                this.id = id;
+                this.wydawnictwo = wydawnictwo;
+                this.rokWydania = rokWydania;
+            }
+            public void WypiszInfo()
+            {
+                Console.WriteLine("Id:{0}, tytul:{1}, wydawnictwo:{2},rokWydania{3}");
+            }
+            public string PobierzTytul()
+            {
+                return this.tytul;
+            }
+            public int PobierzId()
+            {
+                return this.id;
+            }
+        }
+
+        class Autor : Osoba
+        {
+            private string narodowosc;
+            
+            public Autor(string imie, string nazwisko, string narodowosc)
+                : base(imie, nazwisko)
+            {
+                this.imie = imie;
+                this.nazwisko = nazwisko;
+                this.narodowosc = narodowosc;
+
+
+
+            }
+
+            public string PobierzAutora()
+            {
+                return "0";
+
+            }
+
+        }
+
+        public class Ksiazka : Pozycja
+        {
+            private int liczbaStron;
+            Autor nowy = new Autor("Nazwa", "Autor", "Narodowosc");
+            public Ksiazka()
+            {
+
+            }
+            public Ksiazka(string tytul, int id, string wydawnictwo, int rokWydania)
+                : base(tytul, id, wydawnictwo, rokWydania)
+            {
+                this.tytul = tytul;
+                this.id = id;
+                this.wydawnictwo = wydawnictwo;
+                this.rokWydania = rokWydania;
+
+            }
+            public override void WypiszInfo()
+            {
+                Console.WriteLine("1");
+            }
+        }
+
+
+
+
+
+        public class Osoba
+        {
+            protected string imie;
+            protected string nazwisko;
+
+            public Osoba() { }
+            public Osoba(string imie, string nazwisko)
+            {
+                this.imie = imie;
+                this.nazwisko = nazwisko;
+            }
+
+
+
+        }
+
+
+
+
+
+
+        public void DodajPozycje(string tytul, int id, string wydawnictwo, int rokWydania, int numer)
+        {
+            
+        }
+
+        public void WypiszWszystko()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void WyszukajPoTytule(string tytul)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void WyszukajPoid(int id)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+
+
+
+
+
+    
+    public class Pozycja
+    {
+        protected string tytul;
+        protected int id;
+        protected string wydawnictwo;
+        protected int rokWydania;
+        public Pozycja() { }
+        public Pozycja(string tytul, int id, string wydawnictwo, int rokWydania)
+        {
+            this.tytul = tytul;
+            this.id = id;
+            this.wydawnictwo = wydawnictwo;
+            this.rokWydania = rokWydania;
+        }
+        public void WypiszInfo()
+        {
+            Console.WriteLine("Id:{0}, tytul:{1}, wydawnictwo:{2},rokWydania{3}");
+        }
+        public string PobierzTytul()
+        {
+            return this.tytul;
+        }
+        public int PobierzId()
+        {
+            return this.id;
+        }
+    }
+
+
+ 
+}
+         
+
