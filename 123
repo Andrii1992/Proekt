@@ -25,10 +25,12 @@ namespace ConsoleApp30
         public void DodajPozycje(string tytul, int id, string wydawnictwo, int rokWydania, string imie, string nazwisko, string narodowosc, int liczbaStron)
         {
             poz.Add( new Ksiazka(tytul, id, wydawnictwo, rokWydania, imie, nazwisko, narodowosc, liczbaStron));
+            Console.WriteLine("Dodana Ksiazka to " + tytul);
         }
         public void DodajPozycje(string tytul, int id, string wydawnictwo, int rokWydania, int numer)
         {
             poz.Add( new Czasopismo(tytul,id,wydawnictwo,rokWydania,numer));
+            Console.WriteLine("Dodane Czasopismo to " + tytul);
         }
 
         public void WypiszWszystko()
@@ -162,13 +164,121 @@ namespace ConsoleApp30
     {
         static void Main(string[] args)
         {
-            Katalog ne = new Katalog("Biologia");
-            ne.DodajPozycje("Биология: практический курс подготовки к ЕГЭ", 229676, " Юсупянц Э", 2010, "Татьяна","Шустанова","Россия",200);
-            ne.DodajPozycje("e-Katalog", 229797, "A.S. Olsztyn", 2017, 20);
+
+            Katalog ne = new Katalog("Biologia"); ;
+            int x = 1,temp = 21;
+            while (x != 0) {
+                Console.Clear();
+                Console.WriteLine("-----------Biblioteka Uniwersytecka-----------");
+                Console.WriteLine("Co chcesz dodac ??? ");
+                Console.WriteLine("Katalog    podaj 1 ");
+                Console.WriteLine("Ksiazke    podaj 2 ");
+                Console.WriteLine("Czasopismo podaj 3 ");
+                Console.WriteLine("Exit       podaj 0 ");
+                try
+                {
+                    temp = Convert.ToInt32(Console.ReadLine());
+                }
+                catch (Exception) { Console.WriteLine("Nie podano prawidłowy znak"); }
+                if ((temp > 3) || (temp < 0)) { Console.WriteLine("Nie podano prawidłowy numer"); Console.ReadKey(); continue; }
+
+                switch (temp) {
+                    case 0: { x = 0; break; }
+                    case 1:
+                        {
+                            int z = 1;
+                            string temp2;
+                            while (z != 0)
+                            {
+                                Console.Clear();
+                                Console.WriteLine("-----------Biblioteka Uniwersytecka-----------");
+                                Console.WriteLine(">> Katalog");
+
+                                Console.WriteLine(" Podaj nazwe katalogu  lub wróć sie do Menu glownego podajac 0");
+
+                                temp2 = Console.ReadLine();
+                                if (temp2 == "0") { z = 0; continue; }
+                                Console.Clear();
+                                ne = new Katalog(temp2);
 
 
 
-            
+
+
+                                Console.ReadKey();
+                            }
+                            break;
+                        }
+                    case 2:
+                        {
+                            int w = 1;
+                            string temp3;
+                            while (w != 0)
+                            {
+                                Console.Clear();
+                                Console.WriteLine("-----------Biblioteka Uniwersytecka-----------");
+                                Console.WriteLine(">> Ksiazka");
+
+                                Console.WriteLine(" Podaj nazwe Ksiazki lub wróć sie do Menu glownego podajac 0");
+
+                                temp3 = Console.ReadLine();
+                                if (temp3 == "0") { w = 0; continue; }
+                                Console.Clear();
+
+                                ne.DodajPozycje(temp3, 229676, " Юсупянц Э", 2010, "Татьяна", "Шустанова", "Россия", 200);
+
+                                temp3 = Console.ReadLine();
+                                
+                               
+
+
+
+
+                                Console.ReadKey();
+                            }
+
+
+
+
+                            break;
+                        }
+                    case 3:
+                        {
+                            int e = 1;
+                            string temp4;
+                            while (e != 0)
+                            {
+                                Console.Clear();
+                                Console.WriteLine("-----------Biblioteka Uniwersytecka-----------");
+                                Console.WriteLine(">> Czasopismo");
+
+                                Console.WriteLine(" Podaj nazwe Czasopisma lub wróć sie do Menu glownego podajac 0");
+
+                                temp4 = Console.ReadLine();
+                                if (temp4 == "0") { e = 0; continue; }
+                                Console.Clear();
+
+                                ne.DodajPozycje(temp4, 229797, "A.S. Olsztyn", 2017, 20);
+
+                                temp4 = Console.ReadLine();
+                                
+                                
+
+
+
+
+                                Console.ReadKey();
+                            }
+                            break;
+                        }
+
+
+
+                }
+
+                
+                Console.ReadKey();
+            }     
             
                 Console.ReadKey();
         }
