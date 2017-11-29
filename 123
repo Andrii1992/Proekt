@@ -163,8 +163,14 @@ namespace ConsoleApp30
         static void Main(string[] args)
         {
             Katalog ne = new Katalog("Biologia");
-           
-            Console.ReadKey();
+            ne.DodajPozycje("Биология: практический курс подготовки к ЕГЭ", 229676, " Юсупянц Э", 2010, "Татьяна","Шустанова","Россия",200);
+            ne.DodajPozycje("e-Katalog", 229797, "A.S. Olsztyn", 2017, 20);
+
+
+
+            
+            
+                Console.ReadKey();
         }
     }
 
