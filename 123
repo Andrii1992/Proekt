@@ -20,15 +20,15 @@ namespace ConsoleApp30
         private string dzialTematyczny;
         private List<Pozycja> poz = new List<Pozycja>();
 
-        public Katalog(string Nazwa) { }
+        public Katalog(string dzialTematyczny) { this.dzialTematyczny = dzialTematyczny; Console.WriteLine("Dodany dzial tematyczny to " + dzialTematyczny);  }
 
-        public void DodajPozycje(string tytul, int id, string wydawnictwo, int rokWydania, int numer, string tytul1, string tytul2, string tytul3)
+        public void DodajPozycje(string tytul, int id, string wydawnictwo, int rokWydania, string imie, string nazwisko, string narodowosc, int liczbaStron)
         {
-
+            poz.Add( new Ksiazka(tytul, id, wydawnictwo, rokWydania, imie, nazwisko, narodowosc, liczbaStron));
         }
         public void DodajPozycje(string tytul, int id, string wydawnictwo, int rokWydania, int numer)
         {
-
+            poz.Add( new Czasopismo(tytul,id,wydawnictwo,rokWydania,numer));
         }
 
         public void WypiszWszystko()
@@ -162,6 +162,9 @@ namespace ConsoleApp30
     {
         static void Main(string[] args)
         {
+            Katalog ne = new Katalog("Biologia");
+           
+            Console.ReadKey();
         }
     }
 
