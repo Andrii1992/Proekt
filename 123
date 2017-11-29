@@ -4,14 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-
-
-namespace ConsoleApplication1
+namespace ConsoleApp30
 {
 
 
-       interface IZarzadzanie
+    interface IZarzadzanie
     {
         void WypiszWszystko();
         void WyszukajPoTytule(string tytul);
@@ -19,9 +16,9 @@ namespace ConsoleApplication1
     }
 
 
-    public class Czasopismo:Pozycja
+    public class Czasopismo : Pozycja
     {
-       
+
     }
     class Katalog : IZarzadzanie
     {
@@ -74,7 +71,7 @@ namespace ConsoleApplication1
         class Autor : Osoba
         {
             private string narodowosc;
-            
+
             public Autor(string imie, string nazwisko, string narodowosc)
                 : base(imie, nazwisko)
             {
@@ -111,10 +108,7 @@ namespace ConsoleApplication1
                 this.rokWydania = rokWydania;
 
             }
-            public override void WypiszInfo()
-            {
-                Console.WriteLine("1");
-            }
+            
         }
 
 
@@ -144,7 +138,7 @@ namespace ConsoleApplication1
 
         public void DodajPozycje(string tytul, int id, string wydawnictwo, int rokWydania, int numer)
         {
-            
+
         }
 
         public void WypiszWszystko()
@@ -168,7 +162,7 @@ namespace ConsoleApplication1
 
 
 
-    
+
     public class Pozycja
     {
         protected string tytul;
@@ -198,7 +192,10 @@ namespace ConsoleApplication1
     }
 
 
- 
+    class Program
+    {
+        static void Main(string[] args)
+        {
+        }
+    }
 }
-         
-
