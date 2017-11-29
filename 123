@@ -54,10 +54,7 @@ namespace ConsoleApp30
         protected string wydawnictwo;
         protected int rokWydania;
 
-        public Pozycja()
-        {
-
-        }
+        public Pozycja(){}
         public Pozycja(string tytul, int id, string wydawnictwo, int rokWydania)
         {
             this.tytul = tytul;
@@ -67,7 +64,7 @@ namespace ConsoleApp30
         }
         public void WypiszInfo()
         {
-            Console.WriteLine("Id:{0}, tytul:{1}, wydawnictwo:{2},rokWydania{3}");
+            Console.WriteLine("Id:{0}, tytul:{1}", id,rokWydania);
         }
         public string PobierzTytul()
         {
@@ -88,31 +85,37 @@ namespace ConsoleApp30
         {
         }
 
-        public Czasopismo(string tytul, int id, string wydawnictwo, int rokWydania) : base(tytul, id, wydawnictwo, rokWydania)
+        public Czasopismo(string tytul, int id, string wydawnictwo, int rokWydania, int numer) : base(tytul, id, wydawnictwo, rokWydania)
         {
+            this.tytul = tytul;
+            this.id = id;
+            this.wydawnictwo = wydawnictwo;
+            this.rokWydania = rokWydania;
+            this.numer = numer;
+
         }
 
-        public void Wypiszinfo() { }
+        public void Wypiszinfo() { Console.WriteLine("Tytul czasopisma {0}", tytul); }
     }
 
 
     public class Ksiazka : Pozycja
     {
         private int liczbaStron;
-        Autor nowy = new Autor("Nazwa", "Autor", "Narodowosc");
-        public Ksiazka()
-        {
+        private Autor nowy;
+        public Ksiazka(){}
 
-        }
-        public Ksiazka(string tytul, int id, string wydawnictwo, int rokWydania) : base(tytul, id, wydawnictwo, rokWydania)
+        public Ksiazka(string tytul, int id, string wydawnictwo, int rokWydania, string imie, string nazwisko, string narodowosc, int liczbaStron) : base(tytul, id, wydawnictwo, rokWydania)
         {
+            nowy = new Autor(imie, nazwisko, narodowosc);
             this.tytul = tytul;
             this.id = id;
             this.wydawnictwo = wydawnictwo;
             this.rokWydania = rokWydania;
-
+            this.liczbaStron = liczbaStron;
         }
-        public void Wypiszinfo() { }
+
+        public void Wypiszinfo() { Console.WriteLine("Ksiazka liczba stron {0} ", liczbaStron); }
 
     }
 
@@ -122,8 +125,7 @@ namespace ConsoleApp30
         private string narodowosc;
 
         public Autor() { }
-        public Autor(string imie, string nazwisko, string narodowosc)
-            : base(imie, nazwisko)
+        public Autor(string imie, string nazwisko, string narodowosc) : base(imie, nazwisko)
         {
             this.imie = imie;
             this.nazwisko = nazwisko;
@@ -135,7 +137,7 @@ namespace ConsoleApp30
 
         public string PobierzAutora()
         {
-            return "0";
+            return imie + " " + nazwisko;
 
         }
 
